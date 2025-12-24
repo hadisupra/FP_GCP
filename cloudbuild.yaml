@@ -1,0 +1,26 @@
+steps:
+  # Build the container image with no cache
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - 'build'
+      - '--no-cache'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/llm-agent-api:$BUILD_ID'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/llm-agent-api:latest'
+      - '.'
+  
+  # Push the container image to GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/llm-agent-api:latest'
+
+images:
+  - 'gcr.io/$PROJECT_ID/llm-agent-api:latest'
+  - 'gcr.io/$PROJECT_ID/llm-agent-api:$BUILD_ID'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_HIGHCPU_8'
+timeout: '1200s'

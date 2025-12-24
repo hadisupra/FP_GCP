@@ -1,0 +1,51 @@
+# Git files
+.git
+.gitignore
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# Environment files
+.env
+secrets.toml
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Documentation (optional, exclude to reduce image size)
+*.md
+*.txt
+!requirements.txt
+
+# Backup files
+*.bak
+*.copy
+*copy.py
+*copy 2
+
+# Test files
+test_*
+*_test.py
+
+# Logs
+*.log
+
+# Database files (will be created at runtime)
+# *.db
+
+# Other unnecessary files
+.DS_Store
+Thumbs.db
